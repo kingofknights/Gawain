@@ -15,7 +15,6 @@ add_library(${PROJECT_NAME}
         include/Gawain/API/Common/StockPacket.hpp
         include/Gawain/API/Adaptor/Adaptor.hpp
         include/Gawain/API/Strategy/Strategy.hpp
-        include/Gawain/Logger/Logger.hpp
         include/Gawain.hpp
         src/StockPacket.cpp
         src/Common.cpp

@@ -9,7 +9,7 @@
 #include <memory>
 #include <string>
 
-namespace Gawain {
+namespace Lancelot {
 	enum Side : int;
 	struct ResultSetT;
 	using ResultSetPtrT = const ResultSetT *;

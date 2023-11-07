@@ -11,7 +11,7 @@
 #include <string>
 #include <unordered_map>
 
-namespace Gawain {
+namespace Lancelot {
 	enum Side : int;
 
 	namespace API {

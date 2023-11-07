@@ -7,7 +7,7 @@
 #pragma once
 
 #include <string>
-namespace Gawain::API {
+namespace Lancelot::API {
 	enum OrderType : int {
 		OrderType_LIMIT = 0,
 		OrderType_MARKET,

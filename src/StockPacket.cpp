@@ -8,7 +8,7 @@
 #include "Gawain/API/Common/Common.hpp"
 #include "Gawain/API/Strategy/Strategy.hpp"
 
-namespace Gawain::API {
+namespace Lancelot::API {
 
 	inline static int _globalStockPacketUniqueIdentifierCounter = 1;
 

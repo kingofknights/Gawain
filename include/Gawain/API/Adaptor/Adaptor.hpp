@@ -13,7 +13,7 @@
 using ThreadPointerT = std::unique_ptr<std::jthread>;
 using ThreadGroupT	 = std::vector<ThreadPointerT>;
 
-namespace Gawain {
+namespace Lancelot {
 	enum Exchange : int;
 	namespace API {
 		enum OrderRequest : int;

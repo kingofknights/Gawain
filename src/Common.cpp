@@ -1,6 +1,6 @@
 #include "Gawain/API/Common/Common.hpp"
 
-namespace Gawain::API {
+namespace Lancelot::API {
 	std::string toString(OrderType orderType_) {
 		switch (orderType_) {
 			case OrderType_LIMIT: return "OrderType_LIMIT";

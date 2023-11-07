@@ -70,7 +70,7 @@ namespace Gawain::API {
 
 	bool StockPacket::execute(int price_, int quantity_, OrderRequest request_) {
 		if (not getAdaptorPtr()) {
-			LOG(WARNING, "No adaptor found for stockPacket {} price {} quantity {} request {}", getUniqueClassIdentity(), price_, quantity_, Lancelot::API::toString(request_))
+			LOG(WARNING, "No adaptor found for stockPacket {} price {} quantity {} request {}", getUniqueClassIdentity(), price_, quantity_, Gawain::API::toString(request_))
 			return false;
 		}
 

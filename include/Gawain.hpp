@@ -10,6 +10,5 @@
 #include "Gawain/API/Common/Common.hpp"
 #include "Gawain/API/Common/StockPacket.hpp"
 #include "Gawain/API/Strategy/Strategy.hpp"
-#include "Gawain/Logger/Logger.hpp"
 
 #endif	// GAWAIN_INCLUDE_GAWAIN_GAWAIN_API_HPP_

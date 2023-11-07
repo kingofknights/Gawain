@@ -7,7 +7,6 @@
 #include "Gawain/API/Adaptor/Adaptor.hpp"
 #include "Gawain/API/Common/Common.hpp"
 #include "Gawain/API/Strategy/Strategy.hpp"
-#include "Gawain/Logger/Logger.hpp"
 
 namespace Gawain::API {
 
@@ -70,7 +69,6 @@ namespace Gawain::API {
 
 	bool StockPacket::execute(int price_, int quantity_, OrderRequest request_) {
 		if (not getAdaptorPtr()) {
-			LOG(WARNING, "No adaptor found for stockPacket {} price {} quantity {} request {}", getUniqueClassIdentity(), price_, quantity_, Gawain::API::toString(request_))
 			return false;
 		}
 

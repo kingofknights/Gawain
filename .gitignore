@@ -30,3 +30,20 @@
 *.exe
 *.out
 *.app
+
+# Build Folders
+Build
+build
+Resources/Screenshot
+Features
+
+#User files
+*.user
+.idea
+.vcode
+.vs
+
+# Temp
+/include/Lancelot/Database
+/include/Lancelot/Database/DatabaseHandler.hpp
+/src/DatabaseHandler.cpp

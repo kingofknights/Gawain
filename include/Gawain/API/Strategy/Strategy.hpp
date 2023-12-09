@@ -12,7 +12,7 @@
 #include <unordered_map>
 
 namespace Lancelot {
-enum Side : std::uint8_t ;
+enum Side : std::uint8_t;
 
 namespace API {
 
@@ -33,9 +33,9 @@ namespace API {
         void orderEventManager(int uniqueClasIdentifier_);
         void stopEventManager();
 
-        [[nodiscard]] uint32_t getAddress() const;
-        [[nodiscard]] bool     activated() const;
-        void                   setActivated(bool activated_);
+        [[nodiscard]] int  getAddress() const;
+        [[nodiscard]] bool activated() const;
+        void               setActivated(bool activated_);
 
         template<class Child>
         [[nodiscard]] static StrategyPtrT CreateInstance(int pf_, StrategyParamT strategyParameter_) {
@@ -61,7 +61,7 @@ namespace API {
         using uniqueTokenT = std::set<int>;
 
         bool            _activated;
-        uint32_t        _address;
+        int             _address;
         pthread_mutex_t _mutex;
         uniqueTokenT    _uniqueToken;
 

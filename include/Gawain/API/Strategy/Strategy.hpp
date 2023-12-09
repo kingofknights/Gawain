@@ -26,7 +26,6 @@ namespace Lancelot {
 		class Strategy : public std::enable_shared_from_this<Strategy> {
 		public:
 			explicit Strategy(int address_);
-
 			virtual ~Strategy();
 
 			void paramEventManager(const StrategyParamT& param_);
@@ -51,7 +50,7 @@ namespace Lancelot {
 
 			void destroy();
 
-			StockPacketPtrT getStockPacket(int token_, Side side_, const std::string& client_, const std::string& algo_, int ioc_, bool needEvent_ = false);
+			[[nodiscard]] StockPacketPtrT getStockPacket(int token_, Side side_, const std::string& client_, const std::string& algo_, int ioc_, bool needEvent_ = false);
 
 		private:
 			void registerForData(int token_);
@@ -59,14 +58,12 @@ namespace Lancelot {
 			void updateArthur(const StockPacketPtrT& stockPacket_);
 
 		private:
-			bool	 _activated;
-			uint32_t _address;
-
-		private:
-			pthread_mutex_t _mutex;
-
 			using uniqueTokenT = std::set<int>;
-			uniqueTokenT _uniqueToken;
+
+			bool			_activated;
+			uint32_t		_address;
+			pthread_mutex_t _mutex;
+			uniqueTokenT	_uniqueToken;
 
 			friend class StockPacket;
 		};

@@ -2,8 +2,7 @@
 
 namespace Lancelot::API {
 std::string toString(OrderType orderType_) {
-    switch (orderType_)
-    {
+    switch (orderType_) {
         case OrderType_LIMIT:
             return "OrderType_LIMIT";
         case OrderType_MARKET:
@@ -17,8 +16,7 @@ std::string toString(OrderType orderType_) {
 }
 
 std::string toString(StrategyStatus status_) {
-    switch (status_)
-    {
+    switch (status_) {
         case StrategyStatus_PENDING:
             return "StrategyStatus_PENDING";
         case StrategyStatus_ACTIVE:
@@ -37,8 +35,7 @@ std::string toString(StrategyStatus status_) {
     return __FUNCTION__;
 }
 std::string toString(OrderStatus status_) {
-    switch (status_)
-    {
+    switch (status_) {
         case OrderStatus_NONE:
             return "OrderStatus_NONE";
         case OrderStatus_PLACED:
@@ -67,8 +64,7 @@ std::string toString(OrderStatus status_) {
     return __FUNCTION__;
 }
 std::string toString(OrderRequest request_) {
-    switch (request_)
-    {
+    switch (request_) {
         case OrderRequest_NONE:
             return "OrderRequest_NONE";
         case OrderRequest_NEW:

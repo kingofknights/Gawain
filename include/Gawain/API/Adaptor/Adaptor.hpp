@@ -14,7 +14,7 @@ namespace Lancelot {
 using ThreadPointerT = std::unique_ptr<std::jthread>;
 using ThreadGroupT   = std::vector<ThreadPointerT>;
 
-enum Exchange : std::uint8_t ;
+enum Exchange : std::uint8_t;
 namespace API {
     enum OrderRequest : std::uint8_t;
     enum OrderStatus : std::uint8_t;

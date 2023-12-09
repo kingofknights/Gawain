@@ -33,13 +33,13 @@ namespace API {
     //--------------------------------------------------------------------------------------
     class Position {
       public:
-        [[nodiscard]] constexpr int getLastTradeQuantity() const;
-        [[nodiscard]] constexpr int getLastTradePrice() const;
-        [[nodiscard]] constexpr int getTotalTradeQuantity() const;
+        [[nodiscard]] int getLastTradeQuantity() const;
+        [[nodiscard]] int getLastTradePrice() const;
+        [[nodiscard]] int getTotalTradeQuantity() const;
 
-        constexpr void setLastTradeQuantity(int lastTradeQuantity_);
-        constexpr void setLastTradePrice(int lastTradePrice_);
-        constexpr void setTotalTradeQuantity(int totalTradeQuantity_);
+        void setLastTradeQuantity(int lastTradeQuantity_);
+        void setLastTradePrice(int lastTradePrice_);
+        void setTotalTradeQuantity(int totalTradeQuantity_);
 
       private:
         int _lastTradeQuantity  = 0;
@@ -50,8 +50,8 @@ namespace API {
     //--------------------------------------------------------------------------------------
     class Internal {
       public:
-        [[nodiscard]] constexpr int      getUniqueClassIdentity() const;
-        [[nodiscard]] constexpr uint32_t getStrategyNumber() const;
+        [[nodiscard]] int      getUniqueClassIdentity() const;
+        [[nodiscard]] uint32_t getStrategyNumber() const;
 
         [[nodiscard]] ResultSetPtrT         getResultSetPtr() const;
         [[nodiscard]] const AdaptorPtrT&    getAdaptorPtr() const;
@@ -61,11 +61,11 @@ namespace API {
         Internal();
         ~Internal();
 
-        constexpr void setStrategyNumber(uint32_t strategyNumber_);
-        constexpr void setResultSetPtr(const ResultSetT* resultSetPtr_);
-        void           setAdaptorPtr(const AdaptorPtrT& adaptorPtr_);
-        void           setStrategyPtr(const StrategyPtrT& strategyPtr_);
-        constexpr void setUserAllocationPtr(CustomUserAllocation* userAllocationPtr_);
+        void setStrategyNumber(uint32_t strategyNumber_);
+        void setResultSetPtr(const ResultSetT* resultSetPtr_);
+        void setAdaptorPtr(const AdaptorPtrT& adaptorPtr_);
+        void setStrategyPtr(const StrategyPtrT& strategyPtr_);
+        void setUserAllocationPtr(CustomUserAllocation* userAllocationPtr_);
 
       private:
         int      _uniqueClassIdentity = 0;
@@ -80,26 +80,26 @@ namespace API {
     //--------------------------------------------------------------------------------------
     class OrderDetails {
       public:
-        [[nodiscard]] constexpr bool     isIoc() const;
-        [[nodiscard]] constexpr Side     getSide() const;
-        [[nodiscard]] constexpr uint32_t getToken() const;
-        [[nodiscard]] constexpr int      getPrice() const;
-        [[nodiscard]] constexpr int      getQuantity() const;
-        [[nodiscard]] constexpr long     getOrderNumber() const;
+        [[nodiscard]] bool     isIoc() const;
+        [[nodiscard]] Side     getSide() const;
+        [[nodiscard]] uint32_t getToken() const;
+        [[nodiscard]] int      getPrice() const;
+        [[nodiscard]] int      getQuantity() const;
+        [[nodiscard]] long     getOrderNumber() const;
 
         [[nodiscard]] std::string_view getClientCode() const;
         [[nodiscard]] std::string_view getAlgoCode() const;
         [[nodiscard]] std::string_view getContractDescription() const;
 
-        constexpr void setToken(uint32_t token_);
-        constexpr void setSide(Side side_);
-        constexpr void setPrice(int price_);
-        constexpr void setQuantity(int quantity_);
-        constexpr void setIoc(bool ioc_);
-        constexpr void setOrderNumber(long orderNumber_);
-        void           setClientCode(const std::string& clientCode_);
-        void           setAlgoCode(const std::string& algoCode_);
-        void           setContractDescription(const std::string& contractDescription_);
+        void setToken(uint32_t token_);
+        void setSide(Side side_);
+        void setPrice(int price_);
+        void setQuantity(int quantity_);
+        void setIoc(bool ioc_);
+        void setOrderNumber(long orderNumber_);
+        void setClientCode(const std::string& clientCode_);
+        void setAlgoCode(const std::string& algoCode_);
+        void setContractDescription(const std::string& contractDescription_);
 
       private:
         bool     _ioc;
@@ -121,13 +121,13 @@ namespace API {
         , public std::enable_shared_from_this<StockPacket> {
       public:
         explicit StockPacket();
-        [[nodiscard]] constexpr OrderRequest getLastRequest() const;
-        [[nodiscard]] constexpr OrderStatus  getCurrentStatus() const;
-        [[nodiscard]] constexpr OrderStatus  getPreviousStatus() const;
+        [[nodiscard]] OrderRequest getLastRequest() const;
+        [[nodiscard]] OrderStatus  getCurrentStatus() const;
+        [[nodiscard]] OrderStatus  getPreviousStatus() const;
 
-        constexpr void setLastRequest(OrderRequest lastRequest_);
-        constexpr void setCurrentStatus(OrderStatus currentStatus_);
-        constexpr void setPreviousStatus(OrderStatus previousStatus_);
+        void setLastRequest(OrderRequest lastRequest_);
+        void setCurrentStatus(OrderStatus currentStatus_);
+        void setPreviousStatus(OrderStatus previousStatus_);
 
         bool execute(int price_, int quantity_, OrderRequest request_);
         void executionReport(OrderStatus orderStatus_);

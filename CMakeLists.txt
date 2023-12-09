@@ -72,6 +72,7 @@ add_library(${PROJECT_NAME}
         include/Gawain.hpp
         src/StockPacket.cpp
         src/Common.cpp
+        include/Gawain/API/StreamData/StreamHelper.hpp
 )
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)

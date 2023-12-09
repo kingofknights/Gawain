@@ -71,5 +71,5 @@ namespace Lancelot {
 			friend class StockPacket;
 		};
 	}  // namespace API
-}  // namespace GAWAIN
+}  // namespace Lancelot
 #endif	// GAWAIN_INCLUDE_GAWAIN_API_STRATEGY_STRATEGY_HPP_

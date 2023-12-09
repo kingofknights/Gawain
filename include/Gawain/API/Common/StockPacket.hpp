@@ -17,19 +17,21 @@ namespace Lancelot {
 	namespace API {
 		enum OrderStatus : int;
 		enum OrderRequest : int;
+
 		class Strategy;
 		class Adaptor;
+
+		using StrategyPtrT = std::shared_ptr<Strategy>;
+		using AdaptorPtrT  = std::shared_ptr<Adaptor>;
+
+		//--------------------------------------------------------------------------------------
 		class CustomUserAllocation {
 		public:
 			virtual ~CustomUserAllocation() = default;
 		};
 
-		using StrategyPtrT = std::shared_ptr<Strategy>;
-		using AdaptorPtrT  = std::shared_ptr<Adaptor>;
-
+		//--------------------------------------------------------------------------------------
 		class Position {
-		public:
-		private:
 		public:
 			[[nodiscard]] int getLastTradeQuantity() const;
 			[[nodiscard]] int getLastTradePrice() const;
@@ -45,18 +47,19 @@ namespace Lancelot {
 			int _totalTradeQuantity = 0;
 		};
 
+		//--------------------------------------------------------------------------------------
 		class Internal {
 		public:
 			[[nodiscard]] int getUniqueClassIdentity() const;
 			[[nodiscard]] int getStrategyNumber() const;
 
-			[[nodiscard]] const ResultSetT	   *getResultSetPtr() const;
+			[[nodiscard]] ResultSetPtrT			getResultSetPtr() const;
 			[[nodiscard]] const AdaptorPtrT	   &getAdaptorPtr() const;
 			[[nodiscard]] const StrategyPtrT   &getStrategyPtr() const;
 			[[nodiscard]] CustomUserAllocation *getUserAllocationPtr() const;
 
-			virtual ~Internal();
 			Internal();
+			~Internal();
 
 			void setStrategyNumber(int strategyNumber_);
 			void setResultSetPtr(const ResultSetT *resultSetPtr_);
@@ -74,6 +77,7 @@ namespace Lancelot {
 			CustomUserAllocation *_userAllocationPtr;
 		};
 
+		//--------------------------------------------------------------------------------------
 		class OrderDetails {
 		public:
 			[[nodiscard]] bool isIoc() const;
@@ -109,6 +113,8 @@ namespace Lancelot {
 			std::string _algoCode;
 			std::string _contractDescription;
 		};
+
+		//--------------------------------------------------------------------------------------
 		class StockPacket : public Position, public Internal, public OrderDetails, public std::enable_shared_from_this<StockPacket> {
 		public:
 			explicit StockPacket();
@@ -130,6 +136,6 @@ namespace Lancelot {
 		};
 
 	}  // namespace API
-}  // namespace GAWAIN
+}  // namespace Lancelot
 
 #endif	// GAWAIN_INCLUDE_GAWAIN_API_COMMON_STOCK_PACKET_HPP_

@@ -12,6 +12,7 @@ namespace Lancelot::API {
 
 	inline static int _globalStockPacketUniqueIdentifierCounter = 1;
 
+	//--------------------------------------------------------------------------------------
 	int Position::getLastTradeQuantity() const { return _lastTradeQuantity; }
 	int Position::getLastTradePrice() const { return _lastTradePrice; }
 	int Position::getTotalTradeQuantity() const { return _totalTradeQuantity; }
@@ -20,23 +21,25 @@ namespace Lancelot::API {
 	void Position::setLastTradePrice(int lastTradePrice_) { _lastTradePrice = lastTradePrice_; }
 	void Position::setTotalTradeQuantity(int totalTradeQuantity_) { _totalTradeQuantity = totalTradeQuantity_; }
 
+	//--------------------------------------------------------------------------------------
+	Internal::Internal() : _resultSetPtr(nullptr), _uniqueClassIdentity(++_globalStockPacketUniqueIdentifierCounter), _userAllocationPtr(nullptr) {}
+	Internal::~Internal() { delete _userAllocationPtr; }
+
 	int Internal::getUniqueClassIdentity() const { return _uniqueClassIdentity; }
 	int Internal::getStrategyNumber() const { return _strategyNumber; }
 
-	void Internal::setStrategyNumber(int strategyNumber_) { _strategyNumber = strategyNumber_; }
-
-	const ResultSetT	 *Internal::getResultSetPtr() const { return _resultSetPtr; }
+	ResultSetPtrT		  Internal::getResultSetPtr() const { return _resultSetPtr; }
 	const AdaptorPtrT	 &Internal::getAdaptorPtr() const { return _adaptorPtr; }
 	const StrategyPtrT	 &Internal::getStrategyPtr() const { return _strategyPtr; }
 	CustomUserAllocation *Internal::getUserAllocationPtr() const { return _userAllocationPtr; }
 
-	Internal::Internal() : _uniqueClassIdentity(++_globalStockPacketUniqueIdentifierCounter), _userAllocationPtr(nullptr) {}
-	Internal::~Internal() { delete _userAllocationPtr; }
+	void Internal::setStrategyNumber(int strategyNumber_) { _strategyNumber = strategyNumber_; }
 	void Internal::setResultSetPtr(const ResultSetT *resultSetPtr_) { _resultSetPtr = resultSetPtr_; }
 	void Internal::setAdaptorPtr(const AdaptorPtrT &adaptorPtr_) { _adaptorPtr = adaptorPtr_; }
 	void Internal::setStrategyPtr(const StrategyPtrT &strategyPtr_) { _strategyPtr = strategyPtr_; }
 	void Internal::setUserAllocationPtr(CustomUserAllocation *userAllocationPtr_) { _userAllocationPtr = userAllocationPtr_; }
 
+	//--------------------------------------------------------------------------------------
 	bool OrderDetails::isIoc() const { return _ioc; }
 	Side OrderDetails::getSide() const { return _side; }
 	int	 OrderDetails::getPrice() const { return _price; }
@@ -58,6 +61,7 @@ namespace Lancelot::API {
 	void OrderDetails::setAlgoCode(const std::string &algoCode_) { _algoCode = algoCode_; }
 	void OrderDetails::setContractDescription(const std::string &contractDescription_) { _contractDescription = contractDescription_; }
 
+	//--------------------------------------------------------------------------------------
 	StockPacket::StockPacket() : _lastRequest(OrderRequest_NONE), _currentStatus(OrderStatus_NONE), _previousStatus(OrderStatus_NONE) {}
 	void StockPacket::setLastRequest(OrderRequest lastRequest_) { _lastRequest = lastRequest_; }
 	void StockPacket::setCurrentStatus(OrderStatus currentStatus_) { _currentStatus = currentStatus_; }
@@ -83,6 +87,7 @@ namespace Lancelot::API {
 		setCurrentStatus(orderStatus);
 		return false;
 	}
+
 	void StockPacket::executionReport(OrderStatus orderStatus_) {
 		setPreviousStatus(getCurrentStatus());
 		setCurrentStatus(orderStatus_);

@@ -44,7 +44,7 @@ namespace API {
 
       protected:
         virtual void paramEvent(const StrategyParamT& param_) = 0;
-        virtual void marketEvent(int token_)                  = 0;
+        virtual void marketEvent(uint32_t token_)             = 0;
         virtual void orderEvent(int uniqueClasIdentifier_)    = 0;
         virtual void stopEvent()                              = 0;
 

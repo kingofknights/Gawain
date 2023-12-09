@@ -10,7 +10,7 @@
 #include <string>
 
 namespace Lancelot {
-enum Side : std::uint8_t ;
+enum Side : std::uint8_t;
 struct ResultSetT;
 using ResultSetPtrT = const ResultSetT*;
 
@@ -80,18 +80,18 @@ namespace API {
     //--------------------------------------------------------------------------------------
     class OrderDetails {
       public:
-        [[nodiscard]] bool isIoc() const;
-        [[nodiscard]] Side getSide() const;
-        [[nodiscard]] int  getToken() const;
-        [[nodiscard]] int  getPrice() const;
-        [[nodiscard]] int  getQuantity() const;
-        [[nodiscard]] long getOrderNumber() const;
+        [[nodiscard]] bool     isIoc() const;
+        [[nodiscard]] Side     getSide() const;
+        [[nodiscard]] uint32_t getToken() const;
+        [[nodiscard]] int      getPrice() const;
+        [[nodiscard]] int      getQuantity() const;
+        [[nodiscard]] long     getOrderNumber() const;
 
         [[nodiscard]] const std::string& getClientCode() const;
         [[nodiscard]] const std::string& getAlgoCode() const;
         [[nodiscard]] const std::string& getContractDescription() const;
 
-        void setToken(int token_);
+        void setToken(uint32_t token_);
         void setSide(Side side_);
         void setPrice(int price_);
         void setQuantity(int quantity_);
@@ -102,12 +102,12 @@ namespace API {
         void setContractDescription(const std::string& contractDescription_);
 
       private:
-        bool _ioc;
-        Side _side;
-        int  _token;
-        int  _price;
-        int  _quantity;
-        long _orderNumber;
+        bool     _ioc;
+        Side     _side;
+        int      _price;
+        int      _quantity;
+        uint32_t _token;
+        long     _orderNumber;
 
         std::string _clientCode;
         std::string _algoCode;

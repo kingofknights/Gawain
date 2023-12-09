@@ -29,7 +29,7 @@ namespace API {
         virtual ~Strategy();
 
         void paramEventManager(const StrategyParamT& param_);
-        void marketEventManager(int token_);
+        void marketEventManager(uint32_t token_);
         void orderEventManager(int uniqueClasIdentifier_);
         void stopEventManager();
 
@@ -50,10 +50,10 @@ namespace API {
 
         void destroy();
 
-        [[nodiscard]] StockPacketPtrT getStockPacket(int token_, Side side_, const std::string& client_, const std::string& algo_, int ioc_, bool needEvent_ = false);
+        [[nodiscard]] StockPacketPtrT getStockPacket(uint32_t token_, Side side_, const std::string& client_, const std::string& algo_, int ioc_, bool needEvent_ = false);
 
       private:
-        void registerForData(int token_);
+        void registerForData(uint32_t token_);
         void registerSelf();
         void updateArthur(const StockPacketPtrT& stockPacket_);
 

@@ -25,15 +25,15 @@ inline __attribute__((always_inline)) void Position::setTotalTradeQuantity(int t
 Internal::Internal() : _resultSetPtr(nullptr), _uniqueClassIdentity(++_globalStockPacketUniqueIdentifierCounter), _userAllocationPtr(nullptr) {}
 Internal::~Internal() { delete _userAllocationPtr; }
 
-inline __attribute__((always_inline)) int Internal::getUniqueClassIdentity() const { return _uniqueClassIdentity; }
-inline __attribute__((always_inline)) int Internal::getStrategyNumber() const { return _strategyNumber; }
+inline __attribute__((always_inline)) int      Internal::getUniqueClassIdentity() const { return _uniqueClassIdentity; }
+inline __attribute__((always_inline)) uint32_t Internal::getStrategyNumber() const { return _strategyNumber; }
 
 inline __attribute__((always_inline)) ResultSetPtrT         Internal::getResultSetPtr() const { return _resultSetPtr; }
 inline __attribute__((always_inline)) const AdaptorPtrT&    Internal::getAdaptorPtr() const { return _adaptorPtr; }
 inline __attribute__((always_inline)) const StrategyPtrT&   Internal::getStrategyPtr() const { return _strategyPtr; }
 inline __attribute__((always_inline)) CustomUserAllocation* Internal::getUserAllocationPtr() const { return _userAllocationPtr; }
 
-inline __attribute__((always_inline)) void Internal::setStrategyNumber(int strategyNumber_) { _strategyNumber = strategyNumber_; }
+inline __attribute__((always_inline)) void Internal::setStrategyNumber(uint32_t strategyNumber_) { _strategyNumber = strategyNumber_; }
 inline __attribute__((always_inline)) void Internal::setResultSetPtr(const ResultSetT* resultSetPtr_) { _resultSetPtr = resultSetPtr_; }
 inline __attribute__((always_inline)) void Internal::setAdaptorPtr(const AdaptorPtrT& adaptorPtr_) { _adaptorPtr = adaptorPtr_; }
 inline __attribute__((always_inline)) void Internal::setStrategyPtr(const StrategyPtrT& strategyPtr_) { _strategyPtr = strategyPtr_; }

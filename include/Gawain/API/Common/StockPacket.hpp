@@ -50,8 +50,8 @@ namespace API {
     //--------------------------------------------------------------------------------------
     class Internal {
       public:
-        [[nodiscard]] int getUniqueClassIdentity() const;
-        [[nodiscard]] int getStrategyNumber() const;
+        [[nodiscard]] int      getUniqueClassIdentity() const;
+        [[nodiscard]] uint32_t getStrategyNumber() const;
 
         [[nodiscard]] ResultSetPtrT         getResultSetPtr() const;
         [[nodiscard]] const AdaptorPtrT&    getAdaptorPtr() const;
@@ -61,15 +61,15 @@ namespace API {
         Internal();
         ~Internal();
 
-        void setStrategyNumber(int strategyNumber_);
+        void setStrategyNumber(uint32_t strategyNumber_);
         void setResultSetPtr(const ResultSetT* resultSetPtr_);
         void setAdaptorPtr(const AdaptorPtrT& adaptorPtr_);
         void setStrategyPtr(const StrategyPtrT& strategyPtr_);
         void setUserAllocationPtr(CustomUserAllocation* userAllocationPtr_);
 
       private:
-        int _uniqueClassIdentity = 0;
-        int _strategyNumber      = 0;
+        int      _uniqueClassIdentity = 0;
+        uint32_t _strategyNumber      = 0;
 
         ResultSetPtrT         _resultSetPtr;
         AdaptorPtrT           _adaptorPtr;

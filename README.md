@@ -1,3 +1,3 @@
 # Gawain
 
-Merlin API for Adaptor, Stratgies
+Merlin API for Adaptor, Strategies

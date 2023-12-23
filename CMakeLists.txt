@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.5)
 
 project(Gawain VERSION 1.0 LANGUAGES C CXX)
 
@@ -20,7 +20,7 @@ target_compile_features(${PROJECT_NAME}_OPTIONS INTERFACE cxx_std_20)
 if (CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
     option(ENABLE_BUILD_WITH_TIME_TRACE "Enable -ftime-trace to generate time tracing .json files on clang" OFF)
     if (ENABLE_BUILD_WITH_TIME_TRACE)
-        add_compile_definitions(project_options INTERFACE -ftime-trace)
+        add_compile_definitions(${PROJECT_NAME}_OPTIONS INTERFACE -ftime-trace)
     endif ()
 endif ()
 

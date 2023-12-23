@@ -25,7 +25,7 @@ namespace API {
 
     class Strategy : public std::enable_shared_from_this<Strategy> {
       public:
-        explicit Strategy(int address_);
+        explicit Strategy(uint32_t address_);
         virtual ~Strategy();
 
         void paramEventManager(const StrategyParamT& param_);
@@ -33,9 +33,10 @@ namespace API {
         void orderEventManager(int uniqueClasIdentifier_);
         void stopEventManager();
 
-        [[nodiscard]] int  getAddress() const;
-        [[nodiscard]] bool activated() const;
-        void               setActivated(bool activated_);
+        [[nodiscard]] uint32_t getAddress() const;
+        [[nodiscard]] bool     activated() const;
+
+        void setActivated(bool activated_);
 
         template<class Child>
         [[nodiscard]] static StrategyPtrT CreateInstance(int pf_, StrategyParamT strategyParameter_) {
@@ -50,21 +51,21 @@ namespace API {
 
         void destroy();
 
-        [[nodiscard]] StockPacketPtrT getStockPacket(uint32_t token_, Side side_, const std::string& client_, const std::string& algo_, int ioc_, bool needEvent_ = false);
+        [[nodiscard]] StockPacketPtrT getStockPacket(uint32_t token_, Side side_, const std::string& client_ = "", const std::string& algo_ = "", int ioc_ = false, bool needEvent_ = false);
 
       private:
         void registerForData(uint32_t token_);
         void registerSelf();
         void updateArthur(const StockPacketPtrT& stockPacket_);
 
-      private:
         using uniqueTokenT = std::set<int>;
 
-        bool            _activated;
-        int             _address;
-        pthread_mutex_t _mutex;
-        uniqueTokenT    _uniqueToken;
+        bool     _activated;
+        uint32_t _address;
 
+        pthread_mutex_t _mutex;
+
+        uniqueTokenT _uniqueToken;
         friend class StockPacket;
     };
 }// namespace API

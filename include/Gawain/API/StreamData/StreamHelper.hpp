@@ -19,6 +19,8 @@ namespace API {
         virtual ~StreamHelper() = default;
 
         virtual void initialization(ThreadGroupT& threadGroup_) = 0;
+
+        static void updateTick(uint32_t token_);
     };
 }// namespace API
 }// namespace Lancelot
